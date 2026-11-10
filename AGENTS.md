@@ -12,6 +12,8 @@ Todo is a tiny todo app. It exists to practise an AI agent workflow: Claude Code
 
 Also: never merge a PR. Merging is the owner's job, and `.claude/settings.json` denies the GitHub MCP's `merge_pull_request`.
 
+`main` has no branch protection (private repo on GitHub Free), so nothing on GitHub stops a direct push or merge. These rules and the deny rule are the only guard: follow them even when a shortcut would work.
+
 ## SDLC phases
 
 Every ticket moves through these phases in order. Each has one owner and an exit gate; don't start a phase until the previous gate is met.
@@ -42,7 +44,7 @@ A **fix round** is one push by the Implementer that answers a failed CI run or a
 
 | Branch | Use |
 |---|---|
-| `main` | Protected. Changes only through approved release PRs. |
+| `main` | Changes only through release PRs the owner approves and merges. Not technically protected; see Hard rules. |
 | `sprint/N` | Collects one sprint's tickets. Feature PRs target it. |
 | `feat/<issue>-<slug>` | One ticket, e.g. `feat/1-api-scaffold`. |
 
